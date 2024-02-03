@@ -1,1 +1,45 @@
+access(all) contract SomeContract {
+    pub var testStruct: SomeStruct
 
+    pub struct SomeStruct {
+        pub var b: String
+        access(contract) var c: String
+        access(self) var d: String
+        access(contract) fun contractFunc() {}
+        access(self) fun privateFunc() {}
+
+
+        pub fun structFunc() {
+  
+        }
+
+        init() {
+            self.a = "a"
+            self.b = "b"
+            self.c = "c"
+            self.d = "d"
+        }
+    }
+
+    pub resource SomeResource {
+        pub var e: Int
+
+        pub fun resourceFunc() {
+         
+        }
+
+        init() {
+            self.e = 17
+        }
+    }
+
+    pub fun createSomeResource(): @SomeResource {
+        return <- create SomeResource()
+    }
+
+    pub fun questsAreFun() {
+       
+    init() {
+        self.testStruct = SomeStruct()
+    }
+}
