@@ -1,0 +1,33 @@
+pub contract LabourContract {
+
+    // Defining the Labour struct
+    pub struct Labour {
+        pub let id: UInt64
+        pub let name: String
+
+        // Constructor for the Labour struct
+        init(id: UInt64, name: String) {
+            self.id = id
+            self.name = name
+        }
+    }
+
+    // Declaring a dictionary to store Labour details.
+    pub var labour: {UInt64: Labour}
+
+    // Constructor for the contract
+    init() {
+        self.labour = {}
+    }
+
+    // Function to add new labour to the dictionary
+    pub fun addNewLabour(id: UInt64, name: String) {
+        let labour = Labour(id: id, name: name)
+        self.labour[id] = labour
+    }
+
+    // Function to get a employee by id
+    pub fun getLabour(id: UInt64): Labour? {
+        return self.labour[id]
+    }
+}
