@@ -1,0 +1,6 @@
+// Import LabourContract
+import LabourContract from 0x05
+
+pub fun main(id: UInt64): LabourContract.Labour? {
+  return LabourContract.getLabour(id: id)!
+}
